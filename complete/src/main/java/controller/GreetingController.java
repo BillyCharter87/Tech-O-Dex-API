@@ -18,5 +18,6 @@ public class GreetingController {
     public Greeting greeting(@RequestParam(value="name", defaultValue="World")String name) {
         System.out.println("controller WORKED!!");
         return service.setAndReturnGreeting(name);
+        
     }
 }
