@@ -1,15 +1,31 @@
 package service;
 
-import model.Greeting;
+import dto.GreetingDTO;
+import dao.GreetingDAO;
 
 public class GreetingService {
 
-    Greeting greeting = new Greeting();
+    GreetingDAO greeting = new GreetingDAO();
 
-    public Greeting setAndReturnGreeting(String name) {
-        System.out.println("service  WORKED!!");
-        name = name + " holla";
-        greeting.setName(name);
-        return greeting;
+    public GreetingDTO setAndReturnGreeting(GreetingDTO g) {
+
+        System.out.println("Service Works");
+
+        //setting DTO to DAO object
+        greeting.setFName(g.getfName());
+        greeting.setLName(g.getlName());
+
+        callDB(greeting);
+
+        //setting DAO back to DTO
+        g.setFName(greeting.getfName());
+        g.setLName(greeting.getlName());
+
+        return g;
+    }
+
+    private void callDB(GreetingDAO g){
+
+        System.out.println("DB call.");
     }
 }
