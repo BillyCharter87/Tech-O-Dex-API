@@ -9,8 +9,6 @@ public class GreetingService {
 
     public GreetingDTO setAndReturnGreeting(GreetingDTO g) {
 
-        System.out.println("Service Works");
-
         //setting DTO to DAO object
         greeting.setFName(g.getfName());
         greeting.setLName(g.getlName());
@@ -26,6 +24,6 @@ public class GreetingService {
 
     private void callDB(GreetingDAO g){
 
-        System.out.println("DB call.");
+        System.out.println(g.getfName());
     }
 }

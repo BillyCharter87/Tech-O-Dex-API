@@ -2,19 +2,19 @@ package dto;
 
 public class GreetingDTO {
 
-    private String fName;
-    private String lName;
+    private String firstName;
+    private String lastName;
 
     public GreetingDTO() {}
 
     public String getfName() {
-        return this.fName;
+        return this.firstName;
     }
     public String getlName() {
-        return this.lName;
+        return this.lastName;
     }
 
 
-    public void setFName(String s){ this.fName = s; }
-    public void setLName(String s){ this.lName = s; }
+    public void setFName(String s){ this.firstName = s; }
+    public void setLName(String s){ this.lastName = s; }
 }

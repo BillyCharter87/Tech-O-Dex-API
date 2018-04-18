@@ -12,7 +12,7 @@ public class GreetingController {
     @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping("/greeting")
     public GreetingDTO greeting(@RequestBody GreetingDTO greeting) {
-        System.out.println("Controller Works");
+        System.out.println(greeting.getfName());
         return service.setAndReturnGreeting(greeting);
     }
 }
