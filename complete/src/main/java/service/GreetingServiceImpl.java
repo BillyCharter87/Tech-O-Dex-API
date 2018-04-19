@@ -1,17 +1,18 @@
 package service;
 
 import dto.GreetingDTO;
+import model.Greeting;
 import dao.GreetingDAO;
-import service.Greeting;
 
 import org.springframework.stereotype.Service;
 
 @Service
-public class GreetingService implements Greeting{
+public class GreetingServiceImpl implements GreetingSevice {
 
-    private GreetingDAO greeting = new GreetingDAO();
+    private Greeting greeting = new Greeting();
+    private GreetingDAO greetingDAO;
 
-    public GreetingDTO setAndReturnGreeting(GreetingDTO g) {
+    public GreetingDTO postAndReturnGreeting(GreetingDTO g) {
 
         //setting DTO to DAO object
         greeting.setFirstName(g.getFirstName());
@@ -26,7 +27,8 @@ public class GreetingService implements Greeting{
         return g;
     }
 
-    private void callDB(GreetingDAO g){
+    private void callDB(Greeting g){
 
+        greetingDAO.insertGreeting(g);
     }
 }

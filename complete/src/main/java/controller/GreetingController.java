@@ -1,17 +1,17 @@
 package controller;
 
 import org.springframework.web.bind.annotation.*;
-import service.GreetingService;
+import service.GreetingServiceImpl;
 import dto.GreetingDTO;
 
 @RestController
 public class GreetingController {
 
-    private GreetingService greetingService = new GreetingService();
+    private GreetingServiceImpl greetingService = new GreetingServiceImpl();
 
     @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping("/greeting")
     public @ResponseBody GreetingDTO greeting(@RequestBody GreetingDTO greeting) {
-        return greetingService.setAndReturnGreeting(greeting);
+        return greetingService.postAndReturnGreeting(greeting);
     }
 }
