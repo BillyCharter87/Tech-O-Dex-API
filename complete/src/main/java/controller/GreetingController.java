@@ -7,12 +7,11 @@ import dto.GreetingDTO;
 @RestController
 public class GreetingController {
 
-    private GreetingService service = new GreetingService();
+    private GreetingService greetingService = new GreetingService();
 
     @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping("/greeting")
     public @ResponseBody GreetingDTO greeting(@RequestBody GreetingDTO greeting) {
-        System.out.println(greeting.getFirstName());
-        return service.setAndReturnGreeting(greeting);
+        return greetingService.setAndReturnGreeting(greeting);
     }
 }

@@ -10,15 +10,11 @@ public class GreetingDAO {
 
     public GreetingDAO() {}
 
-    public String getfName() {
-        return this.firstName;
-    }
-    public String getlName() {
-        return this.lastName;
-    }
+    public String getFirstName() { return this.firstName; }
+    public String getLastName() { return this.lastName; }
 
 
-    public void setFName(String s){ this.firstName = s; }
-    public void setLName(String s){ this.lastName = s; }
+    public void setFirstName(String firstName){ this.firstName = firstName; }
+    public void setLastName(String lastName){ this.lastName = lastName; }
 }
 
