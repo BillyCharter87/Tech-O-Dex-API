@@ -1,11 +1,13 @@
 package service;
-
 import dto.GreetingDTO;
 import dao.GreetingDAO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class GreetingService {
 
-    GreetingDAO greeting = new GreetingDAO();
+    private GreetingDAO greeting = new GreetingDAO();
 
     public GreetingDTO setAndReturnGreeting(GreetingDTO g) {
 
