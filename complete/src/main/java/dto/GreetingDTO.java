@@ -10,14 +10,14 @@ public class GreetingDTO {
 
     public GreetingDTO() {}
 
-    public String getfName() {
+    public String getFirstName() {
         return this.firstName;
     }
-    public String getlName() {
+    public String getLastName() {
         return this.lastName;
     }
 
 
-    public void setFName(String s){ this.firstName = s; }
-    public void setLName(String s){ this.lastName = s; }
+    public void setFirstName(String firstName){ this.firstName = firstName; }
+    public void setLastName(String lastName){ this.lastName = lastName; }
 }
