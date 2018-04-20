@@ -7,6 +7,4 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 
 @Repository
-public interface GreetingDAO extends JpaRepository<Greeting, Long> {
-    public void insertGreeting(Greeting greeting);
-}
+public interface GreetingDAO extends JpaRepository<Greeting, Long> {}
