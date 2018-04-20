@@ -31,6 +31,6 @@ public class GreetingServiceImpl implements GreetingSevice {
 
     private void callDB(Greeting g){
 
-        greetingDAO.insertGreeting(g);
+        greetingDAO.save(g);
     }
 }
