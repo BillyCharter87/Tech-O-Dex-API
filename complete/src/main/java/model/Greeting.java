@@ -1,11 +1,24 @@
 package model;
 
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.*;
+
 @Repository
+@Entity
+@Table(name = "USERS")
 public class Greeting {
 
+    @Id
+    @GeneratedValue(generator = "id_gen")
+    @GenericGenerator(name="id_gen", strategy = "increment")
+    private int id;
+
+    @Column(name="FIRST_NAME")
     private String firstName;
+
+    @Column(name="LAST_NAME")
     private String lastName;
 
     public Greeting() {}
