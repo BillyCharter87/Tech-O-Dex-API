@@ -4,6 +4,7 @@ import dto.GreetingDTO;
 import model.Greeting;
 import dao.GreetingDAO;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,7 +17,7 @@ public class GreetingServiceImpl implements GreetingSevice {
 
     public GreetingDTO postAndReturnGreeting(GreetingDTO g) {
         
-        private Greeting greeting = new Greeting();
+        Greeting greeting = new Greeting();
 
         //setting DTO to DAO object
         greeting.setFirstName(g.getFirstName());
