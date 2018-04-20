@@ -12,6 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 public class GreetingServiceImpl implements GreetingSevice {
 
     private Greeting greeting = new Greeting();
+    
+    @Autowired
     private GreetingDAO greetingDAO;
 
     public GreetingDTO postAndReturnGreeting(GreetingDTO g) {
