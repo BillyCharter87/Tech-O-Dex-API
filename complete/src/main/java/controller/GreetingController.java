@@ -7,7 +7,8 @@ import dto.GreetingDTO;
 @RestController
 public class GreetingController {
 
-    private GreetingServiceImpl greetingService = new GreetingServiceImpl();
+    @Autowired
+    private GreetingService greetingService;
 
     @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping("/greeting")
