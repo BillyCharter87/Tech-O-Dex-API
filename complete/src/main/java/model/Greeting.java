@@ -5,7 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.*;
 
-@Repository
 @Entity
 @Table(name = "USERS")
 public class Greeting {
