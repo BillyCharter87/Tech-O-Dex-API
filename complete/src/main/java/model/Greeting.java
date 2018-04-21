@@ -6,12 +6,13 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "USERS")
+@Table(name = "GREETING")
 public class Greeting {
 
     @Id
     @GeneratedValue(generator = "id_gen")
     @GenericGenerator(name="id_gen", strategy = "increment")
+    @Column(name="ID")
     private int id;
 
     @Column(name="FIRST_NAME")

@@ -27,16 +27,13 @@ public class GreetingServiceImpl implements GreetingSevice {
 
         callDB(greeting);
 
-        //setting DAO back to DTO
-        g.setFirstName(greeting.getFirstName());
-        g.setLastName(greeting.getLastName());
-
         return g;
     }
 
     private void callDB(Greeting g){
 
         System.out.println("Service IMPL DB Call" + g.getFirstName());
+
         greetingDAO.save(g);
     }
 }
