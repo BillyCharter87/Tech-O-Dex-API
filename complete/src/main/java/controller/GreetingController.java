@@ -14,6 +14,7 @@ public class GreetingController {
     @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping("/greeting")
     public @ResponseBody GreetingDTO greeting(@RequestBody GreetingDTO greeting) {
+        System.out.println("Controller" + greeting.getFirstName());
         return greetingService.postAndReturnGreeting(greeting);
     }
 }

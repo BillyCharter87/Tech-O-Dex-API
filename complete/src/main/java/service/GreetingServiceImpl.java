@@ -16,12 +16,14 @@ public class GreetingServiceImpl implements GreetingSevice {
     private GreetingDAO greetingDAO;
 
     public GreetingDTO postAndReturnGreeting(GreetingDTO g) {
-        
+
         Greeting greeting = new Greeting();
 
         //setting DTO to DAO object
         greeting.setFirstName(g.getFirstName());
         greeting.setLastName(g.getLastName());
+
+        System.out.println("Service IMPL" + greeting.getFirstName());
 
         callDB(greeting);
 
@@ -34,6 +36,7 @@ public class GreetingServiceImpl implements GreetingSevice {
 
     private void callDB(Greeting g){
 
+        System.out.println("Service IMPL DB Call" + g.getFirstName());
         greetingDAO.save(g);
     }
 }
