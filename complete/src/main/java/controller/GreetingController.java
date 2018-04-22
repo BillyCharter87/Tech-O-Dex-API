@@ -22,7 +22,7 @@ public class GreetingController {
 
 
     @CrossOrigin(origins = "http://localhost:4200")
-    @RequestMapping(value = "/health", method = RequestMethod.POST)
+    @RequestMapping(value = "/health", method = RequestMethod.GET)
     public ResponseEntity health() {
         String ok = "OK";
         System.out.println("Controller");
