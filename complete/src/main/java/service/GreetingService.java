@@ -2,6 +2,6 @@ package service;
 
 import dto.GreetingDTO;
 
-public interface GreetingSevice {
+public interface GreetingService {
     GreetingDTO postAndReturnGreeting(GreetingDTO greetingDTO);
 }

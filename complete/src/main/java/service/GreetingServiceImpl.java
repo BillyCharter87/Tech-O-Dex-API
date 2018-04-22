@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
-public class GreetingServiceImpl implements GreetingSevice {
+public class GreetingServiceImpl implements GreetingService {
     
     @Autowired
     private GreetingDAO greetingDAO;
