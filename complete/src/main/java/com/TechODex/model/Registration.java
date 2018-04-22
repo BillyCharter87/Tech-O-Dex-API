@@ -5,8 +5,8 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "GREETING")
-public class Greeting {
+@Table(name = "REGISTRATION")
+public class Registration {
 
     @Id
     @GeneratedValue(generator = "id_gen")
@@ -20,7 +20,7 @@ public class Greeting {
     @Column(name="LAST_NAME")
     private String lastName;
 
-    public Greeting() {}
+    public Registration() {}
 
     public String getFirstName() { return this.firstName; }
     public String getLastName() { return this.lastName; }
