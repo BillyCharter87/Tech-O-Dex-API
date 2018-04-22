@@ -1,6 +1,6 @@
-package service;
+package com.TechODex.service;
 
-import dto.GreetingDTO;
+import com.TechODex.dto.GreetingDTO;
 
 public interface GreetingService {
     GreetingDTO postAndReturnGreeting(GreetingDTO greetingDTO);

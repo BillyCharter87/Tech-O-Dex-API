@@ -1,8 +1,8 @@
-package service;
+package com.TechODex.service;
 
-import dto.GreetingDTO;
-import model.Greeting;
-import dao.GreetingDAO;
+import com.TechODex.dto.GreetingDTO;
+import com.TechODex.model.Greeting;
+import com.TechODex.dao.GreetingDAO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,17 +23,12 @@ public class GreetingServiceImpl implements GreetingService {
         greeting.setFirstName(g.getFirstName());
         greeting.setLastName(g.getLastName());
 
-        System.out.println("Service IMPL" + greeting.getFirstName());
-
         callDB(greeting);
 
         return g;
     }
 
     private void callDB(Greeting g){
-
-        System.out.println("Service IMPL DB Call" + g.getFirstName());
-
         greetingDAO.save(g);
     }
 }

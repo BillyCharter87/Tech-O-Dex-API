@@ -1,7 +1,6 @@
-package model;
+package com.TechODex.model;
 
 import org.hibernate.annotations.GenericGenerator;
-import org.springframework.stereotype.Repository;
 
 import javax.persistence.*;
 

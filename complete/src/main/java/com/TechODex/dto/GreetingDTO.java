@@ -1,8 +1,5 @@
-package dto;
+package com.TechODex.dto;
 
-import org.springframework.stereotype.Component;
-
-@Component
 public class GreetingDTO {
 
     private String firstName;

@@ -1,16 +1,19 @@
-package application;
+package com.TechODex.controller;
 
+import com.TechODex.service.GreetingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import service.GreetingService;
-import dto.GreetingDTO;
+import com.TechODex.service.GreetingServiceImpl;
+import com.TechODex.dto.GreetingDTO;
 
 @RestController
 public class GreetingController {
 
     @Autowired
     private GreetingService greetingService;
+
+//    private GreetingServiceImpl greetingService = new GreetingServiceImpl();
 
     @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value = "/greeting", method = RequestMethod.POST)
