@@ -14,7 +14,7 @@ public class GreetingController {
     private GreetingSevice greetingService;
 
     @CrossOrigin(origins = "http://localhost:4200")
-    @RequestMapping("/greeting")
+    @RequestMapping(value = "/greeting", method = RequestMethod.POST)
     public @ResponseBody GreetingDTO greeting(@RequestBody GreetingDTO greeting) {
         System.out.println("Controller" + greeting.getFirstName());
         return greetingService.postAndReturnGreeting(greeting);
@@ -22,7 +22,7 @@ public class GreetingController {
 
 
     @CrossOrigin(origins = "http://localhost:4200")
-    @RequestMapping("/health")
+    @RequestMapping(value = "/health", method = RequestMethod.POST)
     public ResponseEntity health() {
         String ok = "OK";
         System.out.println("Controller");
