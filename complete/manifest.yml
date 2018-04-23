@@ -1,8 +1,8 @@
 ---
 applications:
-- name: gs-rest-service
+- name: gs-rest-com.TechODex.service
   memory: 256M
   instances: 1
-  host: rest-service
+  host: rest-com.TechODex.service
   domain: guides.spring.io
-  path: build/libs/gs-rest-service-0.1.0.jar
+  path: build/libs/gs-rest-com.TechODex.service-0.1.0.jar

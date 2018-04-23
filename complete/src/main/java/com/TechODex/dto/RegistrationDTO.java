@@ -1,14 +1,11 @@
-package dto;
+package com.TechODex.dto;
 
-import org.springframework.stereotype.Component;
-
-@Component
-public class GreetingDTO {
+public class RegistrationDTO {
 
     private String firstName;
     private String lastName;
 
-    public GreetingDTO() {}
+    public RegistrationDTO() {}
 
     public String getFirstName() {
         return this.firstName;
