@@ -28,21 +28,21 @@ public class RegistrationServiceImpl implements RegistrationService {
         return reg;
     }
 
-    public void findAllRegistrant(RegistrationDTO reg) {
-        List <Registration> list = new ArrayList<Registration>();
-        list = findAllRegistrant(setDTOToModel(reg));
-        for (List list: findAllRegistrant(setDTOToModel(reg))) {
-            System.out.println(rega.getFirstName());
-        }
-//        return findAllRegistrant(setDTOToModel(reg));
+    public List<Registration> findAllRegistrant(RegistrationDTO reg) {
+//        for (Registration r: findAllRegistrant(setDTOToModel(reg))) {
+//            System.out.println(r.getTech());
+//        }
+        return findAllRegistrant(setDTOToModel(reg));
     }
 
     public Registration setDTOToModel(RegistrationDTO dto){
         Registration registration = new Registration();
 
+        registration.seteId(dto.geteId());
         registration.setFirstName(dto.getFirstName());
         registration.setLastName(dto.getLastName());
         registration.seteId(dto.geteId());
+        registration.setTech(dto.getTech());
 
         return registration;
     }
@@ -51,5 +51,5 @@ public class RegistrationServiceImpl implements RegistrationService {
         registrationDAO.save(reg);
     }
     private void deleteRegistrant(Registration reg){registrationDAO.delete(reg);}
-    private List<Registration> findAllRegistrant(Registration reg){registrationDAO.findByTech(reg.getTech());}
+    private List<Registration> findAllRegistrant(Registration reg){ return registrationDAO.findByTech(reg.getTech()); }
 }
