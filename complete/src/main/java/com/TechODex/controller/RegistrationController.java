@@ -15,8 +15,24 @@ public class RegistrationController {
     @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public @ResponseBody
-    RegistrationDTO greeting(@RequestBody RegistrationDTO registration) {
-        return registrationService.postAndReturnGreeting(registration);
+    RegistrationDTO registration(@RequestBody RegistrationDTO registration) {
+        return registrationService.createRegistrant(registration);
+    }
+
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    public @ResponseBody
+    RegistrationDTO deleteRegistration(@RequestBody RegistrationDTO registration) {
+        return registrationService.deleteRegistrant(registration);
+    }
+
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @RequestMapping(value = "/findAll", method = RequestMethod.POST)
+    public @ResponseBody
+    RegistrationDTO findRegistration(@RequestBody RegistrationDTO registration) {
+        return registrationService.findAllRegistrant(registration);
     }
 
 
@@ -24,7 +40,6 @@ public class RegistrationController {
     @RequestMapping(value = "/health", method = RequestMethod.GET)
     public ResponseEntity health() {
         String ok = "OK";
-        System.out.println("Controller");
         return ResponseEntity.ok(ok);
     }
 }
