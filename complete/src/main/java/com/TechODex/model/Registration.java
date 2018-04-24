@@ -20,11 +20,21 @@ public class Registration {
     @Column(name="last_name")
     private String lastName;
 
+    @Column(name="e_id")
+    private String eId;
+
+    @Column(name="tech")
+    private String tech;
+
     public Registration() {}
 
     public String getFirstName() { return this.firstName; }
     public String getLastName() { return this.lastName; }
+    public String geteId() { return eId; }
+    public String getTech() { return tech; }
 
     public void setFirstName(String firstName){ this.firstName = firstName; }
     public void setLastName(String lastName){ this.lastName = lastName; }
+    public void seteId(String eId) { this.eId = eId;}
+    public void setTech(String tech) { this.tech = tech; }
 }

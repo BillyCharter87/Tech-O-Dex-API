@@ -8,27 +8,48 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 @Transactional
 public class RegistrationServiceImpl implements RegistrationService {
     
     @Autowired
-    private RegistrationDAO greetingDAO;
+    private RegistrationDAO registrationDAO;
 
-    public RegistrationDTO postAndReturnGreeting(RegistrationDTO reg) {
-
-        Registration registration = new Registration();
-
-        //setting DTO to DAO object
-        registration.setFirstName(reg.getFirstName());
-        registration.setLastName(reg.getLastName());
-
-        callDB(registration);
-
+    public RegistrationDTO createRegistrant(RegistrationDTO reg) {
+        saveUpdateRegistration(setDTOToModel(reg));
         return reg;
     }
 
-    private void callDB(Registration reg){
-        greetingDAO.save(reg);
+    public RegistrationDTO deleteRegistrant(RegistrationDTO reg) {
+        deleteRegistrant(setDTOToModel(reg));
+        return reg;
     }
+
+    public List<Registration> findAllRegistrant(RegistrationDTO reg) {
+//        for (Registration r: findAllRegistrant(setDTOToModel(reg))) {
+//            System.out.println(r.getTech());
+//        }
+        return findAllRegistrant(setDTOToModel(reg));
+    }
+
+    public Registration setDTOToModel(RegistrationDTO dto){
+        Registration registration = new Registration();
+
+        registration.seteId(dto.geteId());
+        registration.setFirstName(dto.getFirstName());
+        registration.setLastName(dto.getLastName());
+        registration.seteId(dto.geteId());
+        registration.setTech(dto.getTech());
+
+        return registration;
+    }
+
+    private void saveUpdateRegistration(Registration reg){
+        registrationDAO.save(reg);
+    }
+    private void deleteRegistrant(Registration reg){registrationDAO.delete(reg);}
+    private List<Registration> findAllRegistrant(Registration reg){ return registrationDAO.findByTech(reg.getTech()); }
 }
