@@ -32,10 +32,11 @@ public class RegistrationController {
 
 
     @CrossOrigin(origins = "http://localhost:4200")
-    @RequestMapping(value = "/findAll", method = RequestMethod.POST)
+    @RequestMapping(value = "/findAll", method = RequestMethod.GET)
     public @ResponseBody
-    List<Registration> findRegistration(@RequestBody RegistrationDTO registration) {
-        return registrationService.findAllRegistrant(registration);
+    List<Registration> findRegistration(@RequestParam(value="tech") String tech) {
+        System.out.print("controller:" + tech);
+        return registrationService.findAllRegistrant(tech);
     }
 
 

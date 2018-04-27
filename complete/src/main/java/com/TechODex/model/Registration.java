@@ -28,6 +28,10 @@ public class Registration {
 
     public Registration() {}
 
+    public Registration(String t) {
+        tech = t;
+    }
+
     public String getFirstName() { return this.firstName; }
     public String getLastName() { return this.lastName; }
     public String geteId() { return eId; }

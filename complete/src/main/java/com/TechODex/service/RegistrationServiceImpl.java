@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -28,14 +27,15 @@ public class RegistrationServiceImpl implements RegistrationService {
         return reg;
     }
 
-    public List<Registration> findAllRegistrant(RegistrationDTO reg) {
+    public List<Registration> findAllRegistrant(String tech) {
 //        for (Registration r: findAllRegistrant(setDTOToModel(reg))) {
 //            System.out.println(r.getTech());
 //        }
-        return findAllRegistrant(setDTOToModel(reg));
+//        return findAllRegistrant(setDTOToModel(tech));
+        return findAllRegistrantDAO(tech);
     }
 
-    public Registration setDTOToModel(RegistrationDTO dto){
+    private Registration setDTOToModel(RegistrationDTO dto){
         Registration registration = new Registration();
 
         registration.seteId(dto.geteId());
@@ -51,5 +51,7 @@ public class RegistrationServiceImpl implements RegistrationService {
         registrationDAO.save(reg);
     }
     private void deleteRegistrant(Registration reg){registrationDAO.delete(reg);}
-    private List<Registration> findAllRegistrant(Registration reg){ return registrationDAO.findByTech(reg.getTech()); }
+    private List<Registration> findAllRegistrantDAO(String tech){
+        Registration reg = new Registration(tech);
+        return registrationDAO.findByTech(reg.getTech()); }
 }
