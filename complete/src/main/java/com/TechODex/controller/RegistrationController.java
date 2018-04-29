@@ -22,7 +22,6 @@ public class RegistrationController {
         return registrationService.createRegistrant(registration);
     }
 
-
     @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     public @ResponseBody
@@ -30,15 +29,12 @@ public class RegistrationController {
         return registrationService.deleteRegistrant(registration);
     }
 
-
     @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value = "/findAll", method = RequestMethod.GET)
     public @ResponseBody
     List<Registration> findRegistration(@RequestParam(value="tech") String tech) {
-        System.out.print("controller:" + tech);
         return registrationService.findAllRegistrant(tech);
     }
-
 
     @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value = "/health", method = RequestMethod.GET)

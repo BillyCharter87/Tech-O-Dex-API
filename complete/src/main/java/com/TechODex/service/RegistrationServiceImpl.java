@@ -28,10 +28,6 @@ public class RegistrationServiceImpl implements RegistrationService {
     }
 
     public List<Registration> findAllRegistrant(String tech) {
-//        for (Registration r: findAllRegistrant(setDTOToModel(reg))) {
-//            System.out.println(r.getTech());
-//        }
-//        return findAllRegistrant(setDTOToModel(tech));
         return findAllRegistrantDAO(tech);
     }
 
