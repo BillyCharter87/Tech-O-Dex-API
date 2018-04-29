@@ -24,6 +24,7 @@ public class RegistrationServiceImpl implements RegistrationService {
 
     public RegistrationDTO deleteRegistrant(RegistrationDTO reg) {
         deleteRegistrant(setDTOToModel(reg));
+
         return reg;
     }
 
@@ -34,7 +35,6 @@ public class RegistrationServiceImpl implements RegistrationService {
     private Registration setDTOToModel(RegistrationDTO dto){
         Registration registration = new Registration();
 
-        registration.seteId(dto.geteId());
         registration.setFirstName(dto.getFirstName());
         registration.setLastName(dto.getLastName());
         registration.seteId(dto.geteId());
@@ -43,9 +43,7 @@ public class RegistrationServiceImpl implements RegistrationService {
         return registration;
     }
 
-    private void saveUpdateRegistration(Registration reg){
-        registrationDAO.save(reg);
-    }
+    private void saveUpdateRegistration(Registration reg){ registrationDAO.save(reg);}
     private void deleteRegistrant(Registration reg){registrationDAO.delete(reg);}
     private List<Registration> findAllRegistrantDAO(String tech){
         Registration reg = new Registration(tech);
