@@ -12,7 +12,7 @@ public class Registration {
     @GeneratedValue(generator = "id_gen")
     @GenericGenerator(name="id_gen", strategy = "increment")
     @Column(name="ID")
-    private int id;
+    private Long id;
 
     @Column(name="first_name")
     private String firstName;
@@ -32,11 +32,13 @@ public class Registration {
         tech = t;
     }
 
+    public Long getID() { return this.id; }
     public String getFirstName() { return this.firstName; }
     public String getLastName() { return this.lastName; }
     public String geteId() { return eId; }
     public String getTech() { return tech; }
 
+    public void setID(Long id){ this.id = id; }
     public void setFirstName(String firstName){ this.firstName = firstName; }
     public void setLastName(String lastName){ this.lastName = lastName; }
     public void seteId(String eId) { this.eId = eId;}

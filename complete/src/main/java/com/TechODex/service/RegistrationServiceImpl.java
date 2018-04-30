@@ -44,7 +44,10 @@ public class RegistrationServiceImpl implements RegistrationService {
     }
 
     private void saveUpdateRegistration(Registration reg){ registrationDAO.save(reg);}
-    private void deleteRegistrant(Registration reg){registrationDAO.delete(reg);}
+    private void deleteRegistrant(Registration reg){
+        System.out.println(reg.getID());
+        registrationDAO.delete(reg);
+    }
     private List<Registration> findAllRegistrantDAO(String tech){
         Registration reg = new Registration(tech);
         return registrationDAO.findByTech(reg.getTech()); }
