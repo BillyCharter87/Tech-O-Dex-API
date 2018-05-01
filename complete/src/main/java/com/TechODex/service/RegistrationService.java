@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface RegistrationService {
     RegistrationDTO createRegistrant(RegistrationDTO greetingDTO);
-    RegistrationDTO deleteRegistrant(RegistrationDTO greetingDTO);
+    void deleteRegistrant(Long id);
     List<Registration> findAllRegistrant(String tech);
 }

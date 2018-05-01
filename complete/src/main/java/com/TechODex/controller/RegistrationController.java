@@ -23,10 +23,11 @@ public class RegistrationController {
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
-    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    @RequestMapping(value = "/delete", method = RequestMethod.GET)
     public @ResponseBody
-    RegistrationDTO deleteRegistration(@RequestBody RegistrationDTO registration) {
-        return registrationService.deleteRegistrant(registration);
+    void deleteRegistration(@RequestParam(value="id") Long id) {
+        System.out.print(id);
+        registrationService.deleteRegistrant(id);
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
