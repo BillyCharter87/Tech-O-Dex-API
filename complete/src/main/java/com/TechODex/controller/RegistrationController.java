@@ -1,11 +1,14 @@
 package com.TechODex.controller;
 
+import com.TechODex.dto.UserDTO;
 import com.TechODex.model.Registration;
 import com.TechODex.service.RegistrationService;
+import com.TechODex.service.UserService;
+import com.TechODex.dto.RegistrationDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.TechODex.dto.RegistrationDTO;
+
 
 import java.util.List;
 
@@ -14,6 +17,9 @@ public class RegistrationController {
 
     @Autowired
     private RegistrationService registrationService;
+
+    @Autowired
+    private UserService userService;
 
     @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
@@ -26,7 +32,6 @@ public class RegistrationController {
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
     public @ResponseBody
     void deleteRegistration(@RequestParam(value="id") Long id) {
-        System.out.print(id);
         registrationService.deleteRegistrant(id);
     }
 
@@ -35,6 +40,13 @@ public class RegistrationController {
     public @ResponseBody
     List<Registration> findRegistration(@RequestParam(value="tech") String tech) {
         return registrationService.findAllRegistrant(tech);
+    }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public @ResponseBody
+    void registration(@RequestBody UserDTO userDTO) {
+        userService.login(userDTO);
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
