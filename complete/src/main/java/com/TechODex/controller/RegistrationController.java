@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
 import java.util.List;
 
 @RestController
@@ -43,10 +42,10 @@ public class RegistrationController {
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public @ResponseBody
-    void registration(@RequestBody UserDTO userDTO) {
-        userService.login(userDTO);
+    boolean registration(@RequestBody UserDTO userDTO) {
+        return userService.login(userDTO);
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
