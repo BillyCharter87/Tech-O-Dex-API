@@ -8,5 +8,6 @@ import java.util.List;
 @Repository
 public interface RegistrationDAO extends JpaRepository<Registration, Long> {
         List<Registration> findByTech(String tech);
+        List<Registration> findAll();
 }
 

@@ -48,6 +48,13 @@ public class RegistrationController {
         return userService.login(userDTO);
     }
 
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @RequestMapping(value = "/findAllTech", method = RequestMethod.GET)
+    public @ResponseBody
+    List<Registration>findAllTech() { return registrationService.findAllTech(); }
+
+
     @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value = "/health", method = RequestMethod.GET)
     public ResponseEntity health() {

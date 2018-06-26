@@ -9,4 +9,5 @@ public interface RegistrationService {
     RegistrationDTO createRegistrant(RegistrationDTO greetingDTO);
     void deleteRegistrant(Long id);
     List<Registration> findAllRegistrant(String tech);
+    List<Registration> findAllTech();
 }
