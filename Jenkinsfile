@@ -5,6 +5,7 @@ pipeline {
 
         stage('Build') {
             steps {
+               echo 'Now MVN CLEAN INSTALL...' 
                sh 'mvn clean install'
             }
             post {
