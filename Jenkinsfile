@@ -1,10 +1,11 @@
 pipeline {
     agent any
-    stages {
     tools { 
         maven 'Maven 3.3.9' 
         jdk 'jdk8' 
     }
+    stages {
+
         stage('Build') {
             steps {
                echo 'Now mvn clean install' 
