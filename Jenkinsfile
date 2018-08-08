@@ -29,4 +29,5 @@ pipeline {
                 sh "sshpass -p password ssh -o StrictHostKeyChecking=no -i /var/lib/jenkins/secrets/mykey ubuntu@00.00.00.00 '/home/ubuntu/start.sh'"
         }
     }
+    }
 }
