@@ -4,11 +4,13 @@ pipeline {
         maven 'M3'
     }
     stages {
-
+        
         stage('Build') {
             steps {
-               echo 'Now MVN CLEAN INSTALL...' 
-               sh 'mvn -B -DskipTests clean package'
+               echo 'Now mvn clean install' 
+               withMaven(maven : 'maven_3_5_0') {
+                    sh 'mvn clean package'
+                }
             }
             post {
                success {
