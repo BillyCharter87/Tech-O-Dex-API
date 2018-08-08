@@ -43,4 +43,5 @@ public class RegistrationServiceImpl implements RegistrationService {
         Registration reg = new Registration(tech);
         return registrationDAO.findByTech(reg.getTech()); }
     private List<Registration> findAllTechDAO(){ return registrationDAO.findAll(); }
+
 }
