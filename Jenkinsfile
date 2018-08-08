@@ -1,12 +1,14 @@
 pipeline {
     agent any
-
+    tools {
+        maven 'M3'
+    }
     stages {
 
         stage('Build') {
             steps {
                echo 'Now MVN CLEAN INSTALL...' 
-               sh 'mvn clean install'
+               sh 'mvn -B -DskipTests clean package'
             }
             post {
                success {
