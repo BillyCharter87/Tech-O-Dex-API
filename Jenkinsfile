@@ -5,7 +5,7 @@ node {
    }
    
   stage('Build') {
-    withMaven(maven: 'Maven 3') {
+    withMaven(maven: 'Maven 2') {
       dir('Tech-O-Dex-API') {
         sh 'mvn clean package'
       }
