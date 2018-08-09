@@ -1,38 +1,23 @@
-pipeline {
-    agent any
-
-    stages {
-
-        stage('Build') {
-            steps {
-               echo 'Now mvn clean install' 
-               withMaven(maven : 'maven_3_5_0') {
-                    sh 'mvn clean install'
-                }
-                steps{      
-                    def fileExists = fileExists '**/target/surefire-reports/TEST-*.xml'
-
-                    if (fileExists) {
-                        junit fileExists
-                    } else {
-                        echo 'Sorry file does not exist have you skipped test ???'
-                    }
-                }
-            }
-            post {
-               success {
-                    echo 'Now Archiving...'
-                    archiveArtifacts artifacts: '**/target/*.jar'
-                   }
-              }
-          }
-
-
-        stage('Deploy') {
-            steps {
-                sh 'scp -v -o StrictHostKeyChecking=no  -i /var/lib/jenkins/secrets/mykey target/*.jar ubuntu@00.00.00.00:/home/ubuntu'
-                sh "sshpass -p password ssh -o StrictHostKeyChecking=no -i /var/lib/jenkins/secrets/mykey ubuntu@00.00.00.00 '/home/ubuntu/start.sh'"
-            }
-        }
-    }
+node {
+   def mvnHome
+   stage('Preparation') { // for display purposes
+      // Get some code from a GitHub repository
+      git 'https://github.com/BillyCharter87/Tech-O-Dex-API.git'
+      // Get the Maven tool.
+      // ** NOTE: This 'M3' Maven tool must be configured
+      // **       in the global configuration.           
+      mvnHome = tool 'M3'
+   }
+   stage('Build') {
+      // Run the maven build
+      if (isUnix()) {
+         sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
+      } else {
+         bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
+      }
+   }
+   stage('Results') {
+      junit '**/target/surefire-reports/TEST-*.xml'
+      archive 'target/*.jar'
+   }
 }
