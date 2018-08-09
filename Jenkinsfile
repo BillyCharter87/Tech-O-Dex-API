@@ -6,7 +6,7 @@ node {
    
   stage('Build') {
     withMaven(maven: 'Maven 3') {
-      dir('Tech-O-Dex-API') {
+      dir('../') {
         bat 'mvn clean package'
       }
     }
