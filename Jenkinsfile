@@ -6,9 +6,9 @@ node {
    
   stage('Build') {
     withMaven(maven: 'Maven 3') {
-      dir('../') {
+     
         bat 'mvn clean package'
-      }
+      
     }
   }
 }
