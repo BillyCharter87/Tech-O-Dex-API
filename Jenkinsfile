@@ -7,7 +7,7 @@ pipeline {
             steps {
                echo 'Now mvn clean install' 
                withMaven(maven : 'maven_3_5_0') {
-                    sh 'mvn clean package'
+                    sh 'mvn clean install'
                 }
             }
             post {
