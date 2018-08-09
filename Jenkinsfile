@@ -9,13 +9,14 @@ pipeline {
                withMaven(maven : 'maven_3_5_0') {
                     sh 'mvn clean install'
                 }
-                
-                def fileExists = fileExists '**/target/surefire-reports/TEST-*.xml'
+                steps{      
+                    def fileExists = fileExists '**/target/surefire-reports/TEST-*.xml'
 
-                if (fileExists) {
-                    junit fileExists
-                } else {
-                    echo 'Sorry file does not exist have you skipped test ???'
+                    if (fileExists) {
+                        junit fileExists
+                    } else {
+                        echo 'Sorry file does not exist have you skipped test ???'
+                    }
                 }
             }
             post {
