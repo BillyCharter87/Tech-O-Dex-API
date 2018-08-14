@@ -10,5 +10,10 @@ node {
         }
    }
 
+   stage('Deploy') {
+        steps {
+             scp foobar.txt ec2-34-206-71-233.compute-1.amazonaws.com:/some/remote/directory
+        }
+   }
 
 }
