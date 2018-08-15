@@ -16,5 +16,3 @@ node {
            bat 'ssh -i D:/Work/KeyPairs/Tech-O-Dex-API -n -f ec2-user@ec2-34-200-213-23.compute-1.amazonaws.com "sh -c ''cd ~/; java -jar Tech-O-Dex-0.1.0.jar /dev/null &\'"'
         }
    }
-
-}
