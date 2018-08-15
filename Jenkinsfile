@@ -12,6 +12,6 @@ node {
 
    stage('Deploy and Remote Start') {
         steps 
-            sshPublisher(publishers: [sshPublisherDesc(configName: 'Tech-O-Dex-API', transfers: [sshTransfer(excludes: '', execCommand: 'ssh -i D:/Work/KeyPairs/Tech-O-Dex-API.pem ec2-user@ec2-34-200-213-23.compute-1.amazonaws.com "sh -c \'cd ~/; java -jar Tech-O-Dex-0.1.0.jar /dev/null &\\\'"', execTimeout: 1200, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: ' \'target/*.jar\'')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+            sshPublisher(publishers: [sshPublisherDesc(configName: 'Tech-O-Dex-API', transfers: [sshTransfer(excludes: '', execCommand: 'ssh -i C:/Users/Billy/Desktop/Tech-O-Dex-API.pem ec2-user@ec2-34-200-213-23.compute-1.amazonaws.com "sh -c \'cd ~/; java -jar Tech-O-Dex-0.1.0.jar /dev/null &\\\'"', execTimeout: 1200, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: ' \'target/*.jar\'')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
         }
    }
