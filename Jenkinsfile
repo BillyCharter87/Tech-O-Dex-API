@@ -10,9 +10,10 @@ node {
         }
    }
 
-   stage('Deploy') {
+   stage('Deploy and Remote Start') {
         steps {
-             scp foobar.txt ec2-34-206-71-233.compute-1.amazonaws.com:/some/remote/directory
+           scp -i D:\Work\KeyPairs\Tech-O-Dex-API D:\Jenkins\workspace\Tech-O-Dex\target\Tech-O-Dex-0.1.0.jar ec2-user@ec2-34-200-213-23.compute-1.amazonaws.com:~/
+           ssh -i D:\Work\KeyPairs\Tech-O-Dex-API -n -f ec2-user@ec2-34-200-213-23.compute-1.amazonaws.com "sh -c 'cd ~/; java -jar Tech-O-Dex-0.1.0.jar /dev/null &\'"
         }
    }
 
