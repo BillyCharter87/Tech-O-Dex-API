@@ -5,5 +5,8 @@ files:
     destination: /home/ec2-user/Tech-O-Dex
 hooks:
   ApplicationStart:
-    - location: runapp.sh
+    - location: scripts/runapp.sh
       runas: ec2-user
+  ValidateService:
+    - location: scripts/verifyapp.sh
+      runas: root
