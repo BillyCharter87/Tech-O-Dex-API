@@ -58,6 +58,13 @@
             <version>1.10.19</version>
             <scope>test</scope>
         </dependency>
+
+
+        <!-- H2 Database -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
     </dependencies>
 
     <properties>
