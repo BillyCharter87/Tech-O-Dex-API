@@ -10,10 +10,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
-//import static org.junit.Assert.assertNotEquals;
-//import static org.mockito.Mockito.times;
-//import static org.mockito.Mockito.verify;
-//import static org.mockito.Mockito.when;
+import static junit.framework.TestCase.assertSame;
+import static org.mockito.ArgumentMatchers.refEq;
+import static org.mockito.Mockito.verify;
 
 
 /**
@@ -27,45 +26,52 @@ public class RegistrationServiceImplTest {
     private RegistrationServiceImpl registrationServiceImpl;
 
     @Mock
+    private RegistrationDAO registrationDAO;
+
     private RegistrationDTO registrationDTO;
-
-    @Mock
     private Registration registration;
-
 
     @Before
     public void setup() {
+        registration = new Registration();
+        registration.seteId("abc123");
+        registration.setTech("AWS");
+        registration.setFirstName("Bob");
+        registration.setLastName("Tom");
+
+        registrationDTO = new RegistrationDTO();
         registrationDTO.seteId("abc123");
         registrationDTO.setTech("AWS");
         registrationDTO.setFirstName("Bob");
         registrationDTO.setLastName("Tom");
-
-    }
-
-
-    @Test
-    public void createRegistrant() throws Exception {
-//        Mockito.when(registrationServiceImpl.createRegistrant(registrationDTO)).thenReturn(registrationDTO);
-        Mockito.when(registrationServiceImpl.createRegistrant(registrationDTO)).thenReturn(registrationDTO);
-        registrationServiceImpl.createRegistrant(registrationDTO);
-        Mockito.verify(registrationServiceImpl, Mockito.times(1)).createRegistrant(registrationDTO);
     }
 
     @Test
-    public void deleteRegistrant() throws Exception {
+    public void createRegistrantTest() throws Exception {
+        final RegistrationDTO result = registrationServiceImpl.createRegistrant(registrationDTO);
+        assertSame(registrationDTO, result);
 
-//        registrationServiceImpl.deleteRegistrant(Mockito.anyLong());
-//        Mockito.verify(registrationServiceImpl,Mockito.times(1)).deleteRegistrant(Mockito.anyLong());
+        verify(registrationDAO).save(refEq(registration));
     }
 
     @Test
-    public void findAllRegistrant() throws Exception {
-
+    public void deleteRegistrantTest() {
+        registrationServiceImpl.deleteRegistrant(Mockito.anyLong());
+        verify(registrationDAO).deleteById(Mockito.anyLong());
     }
 
     @Test
-    public void findAllTech() throws Exception {
+    public void findAllRegistrantTest(){
 
+        registrationServiceImpl.findAllRegistrant(Mockito.anyString());
+        verify(registrationDAO).findByTech(Mockito.anyString());
     }
 
+    @Test
+    public void findAllTechTest(){
+
+        registrationServiceImpl.findAllTech();
+        verify(registrationDAO).findAll();
+
+    }
 }
